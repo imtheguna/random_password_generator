@@ -114,6 +114,7 @@ class _MyAppState extends State<MyApp> {
                       _isWithNumbers,
                       _isWithSpecial,
                       _numberCharPassword);
+
                   print(newPassword);
                   double passwordstrength =
                       password.check_password(newPassword);
