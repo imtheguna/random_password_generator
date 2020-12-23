@@ -1,6 +1,6 @@
 name: random_password_generator
 description: A new Flutter package which help generate strong password for online accounts and password strength estimator for Dart.
-version: 0.0.1
+version: 0.1.0
 #author: Gunanithi
 homepage: https://github.com/twin-eng/random_password_generator
 

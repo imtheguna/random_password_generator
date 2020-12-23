@@ -26,7 +26,8 @@ else
 
 ```
 
-<img src="ssq1.JPG" width="300"/> <img src="ssq2.JPG" width="300"/> <img src="ssq3.JPG" width="300"/>
+![pic](https://user-images.githubusercontent.com/58139175/102992029-78181600-4540-11eb-8f96-1018e0711ea2.png?raw=true)
+
 
 ## Getting Started
 
