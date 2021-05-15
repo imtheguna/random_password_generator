@@ -2,37 +2,46 @@ library random_password_generator;
 
 import 'dart:math';
 
+/// [Random Password Generator]
 class RandomPasswordGenerator {
-  String random_password(bool _isWithLetters, bool _isWithUppercase,
-      bool _isWithNumbers, bool _isWithSpecial, double _numberCharPassword) {
-    if (_isWithLetters == false &&
-        _isWithUppercase == false &&
-        _isWithSpecial == false &&
-        _isWithNumbers == false) {
-      _isWithLetters = true;
+  /// get random password [randomPassword]
+  String randomPassword(
+      {bool letters = true,
+      bool uppercase = false,
+      bool numbers = false,
+      bool specialChar = false,
+      double passwordLength = 8}) {
+    if (letters == false &&
+        uppercase == false &&
+        specialChar == false &&
+        numbers == false) {
+      letters = true;
     }
     String _lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
     String _upperCaseLetters = _lowerCaseLetters.toUpperCase();
     String _numbers = "0123456789";
     String _special = "@#=+!£\$%&?[](){}";
     String _allowedChars = "";
-    _allowedChars += (_isWithLetters ? _lowerCaseLetters : '');
-    _allowedChars += (_isWithUppercase ? _upperCaseLetters : '');
-    _allowedChars += (_isWithNumbers ? _numbers : '');
-    _allowedChars += (_isWithSpecial ? _special : '');
+    _allowedChars += (letters ? _lowerCaseLetters : '');
+    _allowedChars += (uppercase ? _upperCaseLetters : '');
+    _allowedChars += (numbers ? _numbers : '');
+    _allowedChars += (specialChar ? _special : '');
 
     int i = 0;
     String _result = "";
-    while (i < _numberCharPassword.round()) {
+    while (i < passwordLength.round()) {
       int randomInt = Random.secure().nextInt(_allowedChars.length);
       _result += _allowedChars[randomInt];
       i++;
     }
 
+    /// return random password
     return _result;
   }
 
-  double check_password(String password) {
+  /// check password strong and retrun double value [0-1] input string [password]
+  double checkPassword({required String password}) {
+    /// if [password] is empty return 0.0
     if (password.isEmpty) return 0.0;
 
     double bonus;
@@ -50,14 +59,17 @@ class RandomPasswordGenerator {
       bonus = 1.8;
     }
 
+    /// return double value [0-1]
     final logistic = (double x) {
       return 1.0 / (1.0 + exp(-x));
     };
 
+    /// return double value [0-1]
     final curve = (double x) {
       return logistic((x / 3.0) - 4.0);
     };
 
+    /// return double value [0-1]
     return curve(password.length * bonus);
   }
 }

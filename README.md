@@ -12,9 +12,9 @@ import 'package:random_password_generator/random_password_generator.dart';
 
 final password = RandomPasswordGenerator();
 
-String newPassword = password.random_password(true, false, true, false, 6);
+String newPassword = password.randomPassword(true, false, true, false, 6);
 
-double passwordstrength = password.check_password('hello');
+double passwordstrength = password.checkPassword('hello');
 
 if (passwordstrength < 0.3) 
     print('This password is weak!');

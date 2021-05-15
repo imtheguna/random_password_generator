@@ -108,16 +108,16 @@ class _MyAppState extends State<MyApp> {
                     _numberCharPassword =
                         double.parse(_passwordLength.text.trim());
 
-                  newPassword = password.random_password(
-                      _isWithLetters,
-                      _isWithUppercase,
-                      _isWithNumbers,
-                      _isWithSpecial,
-                      _numberCharPassword);
+                  newPassword = password.randomPassword(
+                      letters: _isWithLetters,
+                      numbers: _isWithNumbers,
+                      passwordLength: _numberCharPassword,
+                      specialChar: _isWithSpecial,
+                      uppercase: _isWithUppercase);
 
                   print(newPassword);
                   double passwordstrength =
-                      password.check_password(newPassword);
+                      password.checkPassword(password: newPassword);
                   if (passwordstrength < 0.3) {
                     _color = Colors.red;
                     isOk = 'This password is weak!';

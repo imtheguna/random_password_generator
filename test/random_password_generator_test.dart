@@ -4,9 +4,13 @@ import 'package:random_password_generator/random_password_generator.dart';
 void main() {
   test('', () {
     final password = RandomPasswordGenerator();
-    String newPassword =
-        password.random_password(false, false, false, false, 20);
+    String newPassword = password.randomPassword(
+        letters: false,
+        numbers: false,
+        passwordLength: 20,
+        specialChar: false,
+        uppercase: false);
     print(newPassword);
-    print(password.check_password(newPassword));
+    print(password.checkPassword(password: newPassword));
   });
 }
