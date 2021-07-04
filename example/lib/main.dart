@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(name),
+        Text(name), 
         Checkbox(value: value, onChanged: onTap),
       ],
     );
